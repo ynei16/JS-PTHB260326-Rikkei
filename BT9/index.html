@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Học lập trình cùng tôi - Tổng hợp</title>
+    <style>
+      /* --- PHẦN CSS TRANG TRÍ --- */
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      h1 {
+        color: #2c7a94;
+        margin-bottom: 5px;
+      }
+      nav {
+        margin-bottom: 10px;
+      }
+      nav a {
+        margin-right: 15px;
+        color: blue;
+        text-decoration: underline;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 15px 0;
+      }
+
+      /* Chia bố cục 2 cột cho Main và Aside */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      main {
+        flex: 2;
+        text-align: left;
+      }
+      aside {
+        flex: 1;
+        border-left: 1px solid #eee;
+        padding-left: 20px;
+      }
+
+      /* Style cho Form */
+      .newsletter-section {
+        background-color: #f9f9f9;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 5px;
+      }
+      input[type="email"] {
+        padding: 8px;
+        width: 200px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 8px 15px;
+        background: #2c7a94;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .banner {
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+      }
+      footer {
+        margin-top: 30px;
+        font-size: 0.9em;
+        color: #777;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Học lập trình cùng tôi</h1>
+      <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Bài viết</a>
+        <a href="#">Liên hệ</a>
+      </nav>
+      <hr />
+    </header>
+
+    <div class="container">
+      <main>
+        <section>
+          <h3>Bài viết mới nhất</h3>
+          <article>
+            <h4>Lộ trình học Front-end Web</h4>
+            <p>
+              Để trở thành một lập trình viên Front-end, bạn cần nắm vững bộ ba
+              HTML, CSS và JavaScript. [cite: 8]
+            </p>
+          </article>
+        </section>
+
+        <section class="newsletter-section">
+          <form action="#" method="POST">
+            <label for="email-news"
+              ><strong>Đăng ký nhận bản tin mới nhất:</strong></label
+            >
+            <br />
+            <input
+              type="email"
+              id="email-news"
+              placeholder="Nhập email của bạn..."
+              required
+            />
+            <button type="submit">Đăng ký</button>
+          </form>
+        </section>
+      </main>
+
+      <aside>
+        <strong>Thông tin phụ</strong>
+        <p>Quảng cáo các khóa học mới nhất tại Academy.</p>
+        <img
+          src="https://rikkeiedu.com/wp-content/uploads/2023/04/rikkei-logo.png"
+          alt="Banner quảng cáo Rikkei Academy"
+          class="banner"
+        />
+      </aside>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Nguyễn Hải Yến - Học viên Rikkei</p>
+    </footer>
+  </body>
+</html>
