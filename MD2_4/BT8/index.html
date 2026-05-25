@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <body>
+    <ul id="main-list">
+      <li>Item 1 <button class="del-btn">Xóa</button></li>
+      <li>Item 2 <button class="del-btn">Xóa</button></li>
+      <li>Item 3 <button class="del-btn">Xóa</button></li>
+      <li>Item 4 <button class="del-btn">Xóa</button></li>
+      <li>Item 5 <button class="del-btn">Xóa</button></li>
+    </ul>
+    <script>
+      document.querySelectorAll(".del-btn").forEach((btn) => {
+        btn.onclick = (e) => {
+          e.target.parentElement.remove();
+        };
+      });
+    </script>
+  </body>
+</html>

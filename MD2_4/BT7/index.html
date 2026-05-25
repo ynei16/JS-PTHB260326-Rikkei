@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <body>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      document.getElementById("login-form").onsubmit = (e) => {
+        e.preventDefault();
+        const data = {
+          user: document.getElementById("username").value,
+          mail: document.getElementById("email").value,
+        };
+        console.log("Dữ liệu form (Object):", data);
+        alert("Đã lấy dữ liệu, xem ở Console (F12)!");
+      };
+    </script>
+  </body>
+</html>

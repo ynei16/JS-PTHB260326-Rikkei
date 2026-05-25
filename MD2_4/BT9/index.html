@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <body>
+    <div id="parent" style="padding: 50px; background: gray; width: 200px">
+      Parent (Gray)
+      <button id="child">Child (Button)</button>
+    </div>
+    <script>
+      document.getElementById("parent").onclick = () =>
+        console.log("Parent clicked!");
+      document.getElementById("child").onclick = (e) => {
+        e.stopPropagation();
+        console.log("Child clicked!");
+      };
+    </script>
+  </body>
+</html>

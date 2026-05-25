@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <body>
+    <ul id="item-list"></ul>
+    <button id="add-btn">Add Item</button>
+    <button id="remove-btn">Remove Last</button>
+    <script>
+      const list = document.getElementById("item-list");
+      document.getElementById("add-btn").onclick = () => {
+        const li = document.createElement("li");
+        li.textContent = "New Item";
+        list.appendChild(li);
+      };
+      document.getElementById("remove-btn").onclick = () => {
+        if (list.lastElementChild) list.removeChild(list.lastElementChild);
+      };
+    </script>
+  </body>
+</html>

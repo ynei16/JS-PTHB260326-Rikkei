@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <body>
+    <input type="text" id="user-input" />
+    <p id="display"></p>
+    <script>
+      const input = document.getElementById("user-input");
+      const display = document.getElementById("display");
+      input.addEventListener("keydown", (e) => {
+        display.textContent = "Bạn vừa nhấn phím: " + e.key;
+      });
+    </script>
+  </body>
+</html>
