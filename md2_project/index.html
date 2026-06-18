@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Wallet - Quản lý chi tiêu cá nhân</title>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Personal Finance Manager</p>
+          <h1>Quản lý chi tiêu cá nhân</h1>
+        </div>
+
+        <label class="month-box">
+          <span>Tháng đang xem</span>
+          <input id="selectMonth" type="month" />
+        </label>
+      </header>
+
+      <main>
+        <!-- F01: Dashboard -->
+        <section class="section">
+          <div class="section-title">
+            <h2>Dashboard</h2>
+            <p>Tổng quan thu, chi và ngân sách tháng đang chọn.</p>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="card">
+              <p class="card-label">Số dư hiện tại</p>
+              <h3 id="balanceText" class="money green">0 đ</h3>
+            </article>
+
+            <article class="card">
+              <p class="card-label">Tổng thu trong tháng</p>
+              <h3 id="incomeText" class="money green">0 đ</h3>
+            </article>
+
+            <article class="card">
+              <p class="card-label">Tổng chi trong tháng</p>
+              <h3 id="expenseText" class="money red">0 đ</h3>
+            </article>
+          </div>
+
+          <article class="card budget-card">
+            <div class="budget-header">
+              <div>
+                <p class="card-label">Ngân sách tổng</p>
+                <strong id="budgetText">0 đ</strong>
+              </div>
+              <span id="budgetStatus" class="status good">Đạt</span>
+            </div>
+            <div class="progress">
+              <div id="budgetProgress" class="progress-bar"></div>
+            </div>
+            <p id="budgetPercentText" class="hint">Đã dùng 0% ngân sách tháng.</p>
+          </article>
+        </section>
+
+        <div class="layout-grid">
+          <!-- F03: Transaction -->
+          <section class="section card">
+            <div class="section-title small">
+              <h2>Thêm giao dịch</h2>
+              <p>Số tiền dương là thu, số tiền âm là chi.</p>
+            </div>
+
+            <form id="tradeForm" class="form">
+              <label>
+                Danh mục
+                <select name="categoryId" id="formSelect" required></select>
+              </label>
+
+              <label>
+                Số tiền
+                <input name="valueMoney" type="number" placeholder="VD: 500000 hoặc -50000" required />
+              </label>
+
+              <label>
+                Ngày giao dịch
+                <input name="createAt" type="date" required />
+              </label>
+
+              <label>
+                Ghi chú
+                <textarea name="note" placeholder="VD: Ăn sáng, lương tháng..." rows="3"></textarea>
+              </label>
+
+              <button type="submit" class="primary-btn">Lưu giao dịch</button>
+            </form>
+          </section>
+
+          <!-- F02: Category -->
+          <section class="section card">
+            <div class="section-title small">
+              <h2>Quản lý danh mục</h2>
+              <p>Thêm, sửa, xóa danh mục và đặt hạn mức.</p>
+            </div>
+
+            <form id="categoryForm" class="form category-form">
+              <label>
+                Tên danh mục
+                <input name="categoryTitle" type="text" placeholder="VD: Ăn uống" required />
+              </label>
+
+              <label>
+                Hạn mức
+                <input name="categoryLimit" type="number" min="0" placeholder="VD: 3000000" required />
+              </label>
+
+              <div class="button-row">
+                <button id="categorySubmitBtn" type="submit" class="primary-btn">Thêm danh mục</button>
+                <button id="cancelEditCategoryBtn" type="button" class="ghost-btn hidden">Hủy sửa</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <section class="section card">
+          <div class="section-title small">
+            <h2>Danh sách danh mục</h2>
+            <p>Hiển thị hạn mức và số tiền đã chi của tháng đang chọn.</p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Danh mục</th>
+                  <th>Hạn mức</th>
+                  <th>Đã chi tháng này</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="tableBodyCategory"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section card">
+          <div class="section-title small">
+            <h2>Lịch sử giao dịch</h2>
+            <p>Giao dịch mới nhất nằm ở trên đầu.</p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ngày</th>
+                  <th>Danh mục</th>
+                  <th>Ghi chú</th>
+                  <th>Số tiền</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="tableBodyTrade"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- F05: Alert & Summary -->
+        <div class="layout-grid">
+          <section class="section card">
+            <div class="section-title small">
+              <h2>Cảnh báo vượt hạn mức</h2>
+              <p>Danh mục vượt hạn mức sẽ hiện màu đỏ.</p>
+            </div>
+            <div id="alertList" class="alert-list"></div>
+          </section>
+
+          <section class="section card">
+            <div class="section-title small">
+              <h2>Bảng tổng hợp các tháng</h2>
+              <p>So sánh tổng chi theo từng tháng.</p>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tháng</th>
+                    <th>Tổng chi</th>
+                    <th>Số giao dịch</th>
+                  </tr>
+                </thead>
+                <tbody id="summaryBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
