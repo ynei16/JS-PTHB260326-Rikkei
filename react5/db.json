@@ -1,0 +1,6 @@
+{
+  "contacts": [
+    { "id": "1", "name": "Nguyễn Thanh Hà", "phone": "0901234567" },
+    { "id": "2", "name": "Lê Minh Thành", "phone": "0987654321" }
+  ]
+}
