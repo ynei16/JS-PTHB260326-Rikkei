@@ -1,6 +1,6 @@
 # Báo cáo Thực hành: Giao tiếp RESTful API với Axios
 
-## 📝 [Bài 6 - Khá] Phân tích hành vi: PUT vs PATCH
+## [Bài 6 - Khá] Phân tích hành vi: PUT vs PATCH
 
 **Bối cảnh:** Cập nhật 1 trường "Số điện thoại" trong tổng số 10 trường dữ liệu của User.
 
@@ -14,17 +14,14 @@
 
 ---
 
-## 📝 [Bài 7 - Giỏi] Tự động hóa định danh (Request Interceptor)
-
-**Minh chứng tiêm Token thành công:**
-_(Sinh viên chèn ảnh chụp màn hình tab Network -> Headers -> Request Headers có chứa dòng `Authorization: Bearer ...` vào đây)_
+## [Bài 7 - Giỏi] Tự động hóa định danh (Request Interceptor)
 
 **Logic can thiệp:**
 Sử dụng `axios.interceptors.request.use`. Mã nguồn sẽ kiểm tra `localStorage`, nếu có token sẽ tự động nối chuỗi `Bearer ` và gán vào `config.headers.Authorization`. Nếu không có, bỏ qua.
 
 ---
 
-## 📝 [Bài 8 - Giỏi] Phân tích Đa giải pháp: Global Error Handling
+## [Bài 8 - Giỏi] Phân tích Đa giải pháp: Global Error Handling
 
 Bảng so sánh 2 phương pháp tiếp cận khi xử lý lỗi 401 (Hết hạn phiên):
 
@@ -36,7 +33,7 @@ Bảng so sánh 2 phương pháp tiếp cận khi xử lý lỗi 401 (Hết hạ
 
 ---
 
-## 📝 [Bài 9 - Xuất sắc] Lưu đồ luồng dữ liệu (Sequence Diagram) - Hủy Request
+## [Bài 9 - Xuất sắc] Lưu đồ luồng dữ liệu (Sequence Diagram) - Hủy Request
 
 **Sơ đồ luồng (Hủy chặn Race Condition):**
 
@@ -50,7 +47,7 @@ Bảng so sánh 2 phương pháp tiếp cận khi xử lý lỗi 401 (Hết hạ
 
 ---
 
-## 📝 [Bài 10 - Xuất sắc] Kịch bản ngoại lệ của Module API Kháng lỗi
+## [Bài 10 - Xuất sắc] Kịch bản ngoại lệ của Module API Kháng lỗi
 
 Module `apiClient.ts` đã được thiết kế để bao phủ các kịch bản sau:
 
