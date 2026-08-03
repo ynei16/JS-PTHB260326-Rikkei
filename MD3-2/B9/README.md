@@ -1,0 +1,2 @@
+Dự án sử dụng ES Module (ESM) bằng cách khai báo `"type": "module"` trong package.json.
+Lý do chọn ESM: Đây là tiêu chuẩn chung của JavaScript hiện đại, giúp code backend (Node.js) và frontend (React/Vue) có chung cú pháp `import`/`export`, đồng thời hỗ trợ tree-shaking tốt hơn.
